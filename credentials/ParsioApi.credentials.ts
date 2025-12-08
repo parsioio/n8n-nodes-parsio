@@ -7,20 +7,18 @@ import type {
 
 export class ParsioApi implements ICredentialType {
 	name = 'parsioApi';
-
 	displayName = 'Parsio API';
-
-	// Link to your community node's README
-	documentationUrl = 'https://github.com/org/-parsio?tab=readme-ov-file#credentials';
+	documentationUrl = 'https://help.parsio.io/';
 
 	properties: INodeProperties[] = [
 		{
-			displayName: 'API Key',
+			displayName: 'Parsio API Key',
 			name: 'apiKey',
 			type: 'string',
 			typeOptions: { password: true },
 			required: true,
 			default: '',
+			hint: 'Get your API key from your <a href="https://app.parsio.io/account" target="_blank">Parsio account settings</a>',
 		},
 	];
 
@@ -28,7 +26,7 @@ export class ParsioApi implements ICredentialType {
 		type: 'generic',
 		properties: {
 			headers: {
-				'x-api-key': '={{$credentials.apiKey}}',
+				'X-API-Key': '={{$credentials?.apiKey}}',
 			},
 		},
 	};
@@ -36,7 +34,8 @@ export class ParsioApi implements ICredentialType {
 	test: ICredentialTestRequest = {
 		request: {
 			baseURL: 'https://api.parsio.io',
-			url: '/v1/user',
+			url: '/users/me',
+			method: 'GET',
 		},
 	};
 }

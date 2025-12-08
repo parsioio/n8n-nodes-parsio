@@ -1,16 +1,17 @@
 import { NodeConnectionTypes, type INodeType, type INodeTypeDescription } from 'n8n-workflow';
-import { userDescription } from './resources/user';
-import { companyDescription } from './resources/company';
+import { getInboxes } from './listSearch/getInboxes';
+import { importFileDescription, importFilePreSend } from './resources/document/importFile';
+import { importHtmlDescription, importHtmlPreSend } from './resources/document/importHtml';
 
 export class Parsio implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Parsio',
 		name: 'parsio',
 		icon: { light: 'file:../../icons/parsio.svg', dark: 'file:../../icons/parsio.dark.svg' },
-		group: ['transform'],
+		group: ['input'],
 		version: 1,
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
-		description: 'Interact with the Parsio API',
+		description: 'Extract structured data from emails, PDFs, images, and other documents',
 		defaults: {
 			name: 'Parsio',
 		},
@@ -33,18 +34,53 @@ export class Parsio implements INodeType {
 				noDataExpression: true,
 				options: [
 					{
-						name: 'User',
-						value: 'user',
-					},
-					{
-						name: 'Company',
-						value: 'company',
+						name: 'Document',
+						value: 'document',
 					},
 				],
-				default: 'user',
+				default: 'document',
 			},
-			...userDescription,
-			...companyDescription,
+			{
+				displayName: 'Operation',
+				name: 'operation',
+				type: 'options',
+				noDataExpression: true,
+				options: [
+					{
+						name: 'Import Document From File',
+						value: 'importFile',
+						description: 'Import a binary file into an inbox and extract structured data',
+						action: 'Import a binary file into an inbox and extract structured data',
+						routing: {
+							send: {
+								preSend: [importFilePreSend],
+							},
+						},
+					},
+
+					{
+						name: 'Import Text/HTML Document',
+						value: 'importTextHtml',
+						description: 'Import a text/html document into an inbox and extract structured data',
+						action: 'Import a text html document into an inbox and extract structured data',
+						routing: {
+							send: {
+								preSend: [importHtmlPreSend],
+							},
+						},
+					},
+				],
+				default: 'importFile',
+				displayOptions: { show: { resource: ['document'] } },
+			},
+			...importFileDescription,
+			...importHtmlDescription,
 		],
+	};
+
+	methods = {
+		listSearch: {
+			getInboxes,
+		},
 	};
 }
