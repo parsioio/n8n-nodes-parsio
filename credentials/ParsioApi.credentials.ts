@@ -1,5 +1,6 @@
 import type {
 	IAuthenticateGeneric,
+	Icon,
 	ICredentialTestRequest,
 	ICredentialType,
 	INodeProperties,
@@ -8,6 +9,7 @@ import type {
 export class ParsioApi implements ICredentialType {
 	name = 'parsioApi';
 	displayName = 'Parsio API';
+	icon: Icon = { light: 'file:../icons/parsio.svg', dark: 'file:../icons/parsio.dark.svg' };
 	documentationUrl = 'https://help.parsio.io/';
 
 	properties: INodeProperties[] = [
