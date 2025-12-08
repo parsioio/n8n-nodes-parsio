@@ -43,12 +43,12 @@ export async function create(this: IHookFunctions): Promise<boolean> {
 
 	const body: {
 		hook_url: string;
-		mailbox_id: string;
+		mb_id: string;
 		event: string;
 		secret: string;
 	} = {
 		hook_url: webhookUrl,
-		mailbox_id: inboxId,
+		mb_id: inboxId,
 		event: event,
 		secret: webhookSecret,
 	};
