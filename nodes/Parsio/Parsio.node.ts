@@ -6,7 +6,7 @@ export class Parsio implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Parsio',
 		name: 'parsio',
-		icon: { light: 'file:parsio.svg', dark: 'file:parsio.dark.svg' },
+		icon: { light: 'file:../../icons/parsio.svg', dark: 'file:../../icons/parsio.dark.svg' },
 		group: ['transform'],
 		version: 1,
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',

@@ -1,37 +1,65 @@
 {
-  "name": "n8n-nodes-parsio",
-  "version": "0.1.0",
-  "description": "",
-  "license": "MIT",
-  "homepage": "",
-  "keywords": ["n8n-community-node-package"],
-  "author": { "name": "Andrew", "email": "" },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/<...>/n8n-nodes-<...>.git"
-  },
-  "scripts": {
-    "build": "n8n-node build",
-    "build:watch": "tsc --watch",
-    "dev": "n8n-node dev",
-    "lint": "n8n-node lint",
-    "lint:fix": "n8n-node lint --fix",
-    "release": "n8n-node release",
-    "prepublishOnly": "n8n-node prerelease"
-  },
-  "files": ["dist"],
-  "n8n": {
-    "n8nNodesApiVersion": 1,
-    "strict": true,
-    "credentials": ["dist/credentials/ParsioApi.credentials.js"],
-    "nodes": ["dist/nodes/Parsio/Parsio.node.js"]
-  },
-  "devDependencies": {
-    "@n8n/node-cli": "*",
-    "eslint": "9.32.0",
-    "prettier": "3.6.2",
-    "release-it": "^19.0.4",
-    "typescript": "5.9.2"
-  },
-  "peerDependencies": { "n8n-workflow": "*" }
+	"name": "n8n-nodes-parsio",
+	"version": "0.1.0",
+	"description": "Official n8n Parsio node. Use Parsio in n8n to extract structured data from emails, PDFs, images, and other documents, then route the extracted data anywhere in your automation.",
+	"license": "MIT",
+	"homepage": "https://parsio.io",
+	"keywords": [
+		"n8n-community-node-package",
+		"parsio",
+		"parsio.io",
+		"ai document parser",
+		"automation",
+		"data extraction",
+		"parser",
+		"document parser",
+		"email parser",
+		"pdf parser",
+		"html parser",
+		"excel parser",
+		"image parser",
+		"png parser",
+		"jpg parser",
+		"word parser"
+	],
+	"author": {
+		"name": "Parsio",
+		"email": "support@parsio.io"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/parsioio/n8n-nodes-parsio"
+	},
+	"scripts": {
+		"build": "n8n-node build",
+		"build:watch": "tsc --watch",
+		"dev": "n8n-node dev",
+		"lint": "n8n-node lint",
+		"lint:fix": "n8n-node lint --fix",
+		"release": "n8n-node release",
+		"prepublishOnly": "n8n-node prerelease"
+	},
+	"files": [
+		"dist"
+	],
+	"n8n": {
+		"n8nNodesApiVersion": 1,
+		"strict": true,
+		"credentials": [
+			"dist/credentials/ParsioApi.credentials.js"
+		],
+		"nodes": [
+			"dist/nodes/Parsio/Parsio.node.js"
+		]
+	},
+	"devDependencies": {
+		"@n8n/node-cli": "*",
+		"eslint": "9.32.0",
+		"prettier": "3.6.2",
+		"release-it": "^19.0.4",
+		"typescript": "5.9.2"
+	},
+	"peerDependencies": {
+		"n8n-workflow": "*"
+	}
 }
