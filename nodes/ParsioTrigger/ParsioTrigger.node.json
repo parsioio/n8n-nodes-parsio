@@ -6,12 +6,12 @@
 	"resources": {
 		"credentialDocumentation": [
 			{
-				"url": "https://help.parsio.io/"
+				"url": "https://help.parsio.io/data-export-integrations/n8n-integration#authentication"
 			}
 		],
 		"primaryDocumentation": [
 			{
-				"url": "https://help.parsio.io/"
+				"url": "https://help.parsio.io/data-export-integrations/n8n-integration"
 			}
 		]
 	}

@@ -10,7 +10,8 @@ export class ParsioApi implements ICredentialType {
 	name = 'parsioApi';
 	displayName = 'Parsio API';
 	icon: Icon = 'file:../icons/parsio.svg';
-	documentationUrl = 'https://help.parsio.io/';
+	documentationUrl =
+		'https://help.parsio.io/data-export-integrations/n8n-integration#authentication';
 
 	properties: INodeProperties[] = [
 		{
