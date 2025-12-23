@@ -9,7 +9,7 @@ import type {
 export class ParsioApi implements ICredentialType {
 	name = 'parsioApi';
 	displayName = 'Parsio API';
-	icon: Icon = { light: 'file:../icons/parsio.svg', dark: 'file:../icons/parsio.dark.svg' };
+	icon: Icon = 'file:../icons/parsio.svg';
 	documentationUrl = 'https://help.parsio.io/';
 
 	properties: INodeProperties[] = [

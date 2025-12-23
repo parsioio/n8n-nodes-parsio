@@ -14,7 +14,7 @@ export class ParsioTrigger implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Parsio Trigger',
 		name: 'parsioTrigger',
-		icon: { light: 'file:../../icons/parsio.svg', dark: 'file:../../icons/parsio.dark.svg' },
+		icon: 'file:../../icons/parsio.svg',
 		group: ['trigger'],
 		version: 1,
 		description: 'Trigger workflow when events occur in Parsio',
